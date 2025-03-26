@@ -1,0 +1,10 @@
+[project]
+name = "reCase"
+version = "0.1.0"
+description = "Format variable names in Python files to snake_case or camelCase"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["ruff"]
+
+[project.scripts]
+reCase = "reCase.cli.main:main"

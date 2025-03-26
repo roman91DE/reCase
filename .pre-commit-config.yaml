@@ -1,0 +1,33 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.3  # latest at time of writing
+    hooks:
+      - id: ruff
+        name: ruff format
+        args: [--fix]
+        types: [python]
+      - id: ruff
+        name: ruff check
+        args: []  # no fix
+        types: [python]
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1  # ✅ known to work
+    hooks:
+    - id: isort
+      args: ["--profile", "black"]
+      types: [python]
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run Pytest
+        entry: bash scripts/hook_pytest.sh
+        language: system
+        types: [python]
+
+      - id: uv-install
+        name: Ensure dependencies via uv
+        entry: bash scripts/hook_uv.sh
+        language: system
+        pass_filenames: false

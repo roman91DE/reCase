@@ -25,7 +25,7 @@ def extract_variable_names(source_code: str) -> Generator[str, None, None]:
             for target in node.targets:
                 yield from extract_from_target(target)
 
-def extract_names(source_code: str) -> dict[str, list[str]]:
+def extract_names(source_code: str) -> dict[str, Generator[str]]:
     return {
         "classes": extract_class_names(source_code),
         "functions": extract_function_names(source_code),

@@ -52,3 +52,4 @@ test-results.xml
 
 # Ruff cache
 .ruff_cache/
+ugly_script.py
